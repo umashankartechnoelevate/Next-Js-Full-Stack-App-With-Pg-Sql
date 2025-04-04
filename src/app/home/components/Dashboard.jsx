@@ -8,9 +8,25 @@ const Dashboard = ({ data }) => {
   console.log("circle", circle);
   console.log("count", count);
 
-  const addCircle = () => {
+  const addCircle = async () => {
     setCircle([...circle, { id: circle.length, color: "white" }]);
     setCount((prev) => prev + 1);
+
+    const res = await fetch("/api/Users", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name: "Umashankar",
+        contact: 9823191415,
+      }),
+    });
+    const finalResult = await res.json();
+    console.log("res after adding the data", finalResult);
+    if (finalResult.ok) {
+      alert("user iunserted successfully");
+    }
   };
 
   const circleClick = (id) => {
