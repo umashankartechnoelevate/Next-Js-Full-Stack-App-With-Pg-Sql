@@ -1,9 +1,11 @@
 "use client";
+import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const Dashboard = ({ data }) => {
   const [circle, setCircle] = useState([]);
   const [count, setCount] = useState(0);
+  const router = useRouter();
 
   console.log("circle", circle);
   console.log("count", count);
@@ -44,6 +46,10 @@ const Dashboard = ({ data }) => {
     );
   };
 
+  const nestedRoute = () => {
+    router.push("home/subHome");
+  };
+
   return (
     <>
       <div className="text-black text-[50px] text-center align-center">
@@ -71,6 +77,11 @@ const Dashboard = ({ data }) => {
 
       <div className="cursor-pointer bg-black text-white text-[30px] text-center align-center mt-[20px]">
         <button onClick={addCircle}>Add Circle</button>
+        <br />
+      </div>
+      <br />
+      <div className="cursor-pointer bg-black text-white text-[30px] text-center align-center mt-[20px]">
+        <button onClick={nestedRoute}>Add nested route</button>
       </div>
 
       {circle?.map((cir) => {
