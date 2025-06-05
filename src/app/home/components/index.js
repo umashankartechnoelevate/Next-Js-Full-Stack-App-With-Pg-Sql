@@ -1,6 +1,7 @@
 "use server";
 import React from "react";
 import Dashboard from "./Dashboard";
+import PaginationExample from "./Pagination";
 
 const DashboardSSR = async () => {
   const userData = await fetch(`${process.env.LOCALHOST}/api/Users`)
@@ -88,7 +89,8 @@ const DashboardSSR = async () => {
   }
   //promise.all ended
 
-  return <Dashboard data={userData} />;
+  // return <Dashboard data={userData} />;
+  // return <PaginationExample />;
 };
 
 export default DashboardSSR;
