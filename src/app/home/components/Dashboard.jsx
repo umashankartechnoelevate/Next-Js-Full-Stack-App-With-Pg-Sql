@@ -58,6 +58,7 @@ const Dashboard = ({ data }) => {
       {data?.map((data) => {
         return (
           <div
+            key={data.id}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -86,19 +87,18 @@ const Dashboard = ({ data }) => {
 
       {circle?.map((cir) => {
         return (
-          <>
-            <div
-              onClick={() => circleClick(cir.id)}
-              style={{
-                width: "50px",
-                height: "50px",
-                borderRadius: "50%",
-                background: cir.color,
-                cursor: "pointer",
-                border: "1px solid black",
-              }}
-            ></div>
-          </>
+          <div
+            key={cir.id}
+            onClick={() => circleClick(cir.id)}
+            style={{
+              width: "50px",
+              height: "50px",
+              borderRadius: "50%",
+              background: cir.color,
+              cursor: "pointer",
+              border: "1px solid black",
+            }}
+          ></div>
         );
       })}
     </>
